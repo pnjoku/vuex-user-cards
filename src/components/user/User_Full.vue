@@ -22,6 +22,12 @@
       Back to All Users
     </button>
   </div>
+  <div v-if="user === undefined">
+    <h4>User Not Found</h4>
+    <button class="button is-rounded is-pulled-right" @click="goToHome">
+      Back to All Users
+    </button>
+  </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -37,6 +43,9 @@ export default {
     },
   },
   created() {
+    if (this.$route.params.id == 11) {
+      this.user = undefined;
+    }
     this.$store.dispatch("getUser", { id: this.$route.params.id });
   },
 };

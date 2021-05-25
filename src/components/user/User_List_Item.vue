@@ -3,7 +3,7 @@
     <div class="card-content">
       <div class="content">
         <h4>{{ user.name }}</h4>
-        <p>UserName: {{ user.username }}</p>
+        <p>Zip: {{ user.address.zipcode }}</p>
         <p>Company: {{ user.company.name }}</p>
         <p>Company Catch Phrase: "{{ user.company.catchPhrase }}"</p>
         <router-link

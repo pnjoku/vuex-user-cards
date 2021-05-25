@@ -118,7 +118,11 @@
               v-model="bs"
             />
           </div>
-          <input class="button is-success" type="submit" value="Submit" />
+          <input
+            class="button is-success submitButton"
+            type="submit"
+            value="Submit"
+          />
           <button class="button" @click="emit">Cancel</button>
         </form>
       </section>
@@ -130,6 +134,7 @@ export default {
   name: "AddUserModal",
   methods: {
     checkForm(e) {
+      e.preventDefault();
       this.emit();
       const formattedData = {
         name: this.name,
@@ -148,13 +153,12 @@ export default {
         phone: this.phone ? this.phone : "024-648-3804",
         website: "Prince.com",
         company: {
-          name: "Prince Company LLC",
+          name: "The Prince Company LLC",
           catchPhrase: "hi",
           bs: "target end-to-end models",
         },
       };
       this.addUser(formattedData);
-      e.preventDefault();
     },
     emit() {
       this.$parent.toggleShowModal();
@@ -165,3 +169,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.submitButton {
+  margin-right: 5px;
+}
+</style>
