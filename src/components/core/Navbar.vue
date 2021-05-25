@@ -34,7 +34,7 @@ export default {
     toggleShowModal() {
       this.showModal = !this.showModal
         ? (this.showModal = true)
-        : (this.Active = false);
+        : (this.showModal = false);
     },
   },
   created() {
